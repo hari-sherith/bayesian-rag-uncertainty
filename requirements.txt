@@ -1,0 +1,12 @@
+transformers
+torch
+numpy
+scipy
+langchain
+faiss-cpu
+streamlit
+matplotlib
+seaborn
+sentence-transformers
+langchain-text-splitters
+pytest
