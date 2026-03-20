@@ -7,16 +7,16 @@ A Retrieval-Augmented Generation system that provides calibrated confidence scor
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 
-## 🎯 Overview
+## Overview
 
 Standard RAG systems tell you *what* the answer is, but not *how confident* they are. This project implements a complete uncertainty quantification framework that:
 
-- **Quantifies retrieval uncertainty** using Bayesian inference with Beta conjugate priors
-- **Decomposes generation uncertainty** into epistemic (model) vs aleatoric (data) components
-- **Calibrates confidence scores** using temperature scaling to ensure trustworthiness
-- **Provides interpretable visualizations** of uncertainty at every stage
+- Quantifies retrieval uncertainty using Bayesian inference with Beta conjugate priors
+- Decomposes generation uncertainty into epistemic (model) vs aleatoric (data) components
+- Calibrates confidence scores using temperature scaling to ensure trustworthiness
+- Provides interpretable visualizations of uncertainty at every stage
 
-## ✨ Key Features
+## Key Features
 
 - **Bayesian Retrieval**: Beta(α=2, β=2) conjugate priors with posterior updates
 - **MC Dropout Generation**: Epistemic vs aleatoric uncertainty decomposition  
@@ -24,7 +24,7 @@ Standard RAG systems tell you *what* the answer is, but not *how confident* they
 - **Interactive Dashboard**: Real-time uncertainty visualization with Streamlit
 - **Production-Ready**: Comprehensive test suite with 18+ passing tests
 
-## 📊 Demo
+## Demo
 
 ### Retrieval Uncertainty
 Documents ranked with Bayesian posterior means and 95% credible intervals:
@@ -41,7 +41,7 @@ Reliability diagrams showing model calibration before/after temperature scaling:
 
 ![Calibration](screenshots/calibration_retrieval.png)
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 ```bash
@@ -64,7 +64,7 @@ streamlit run app/main.py
 pytest tests/ -v
 ```
 
-## 🏗️ Architecture
+## Architecture
 
 The project implements uncertainty quantification across four weeks:
 
@@ -85,14 +85,14 @@ The project implements uncertainty quantification across four weeks:
 ### Week 3: Calibration
 - **Metrics**: Expected Calibration Error (ECE), Maximum Calibration Error (MCE), Brier Score
 - **Method**: Temperature scaling via maximum likelihood on validation set
-- **Results**: ECE reduced from 0.15 → 0.03 after calibration
+- **Results**: ECE reduced from 0.15 to 0.03 after calibration
 
 ### Week 4: Interactive Dashboard
 - **Streamlit UI**: Real-time query interface with adjustable hyperparameters
 - **Visualizations**: Token entropy heatmaps, reliability diagrams, credible intervals
 - **Tabs**: Query & Answer, Retrieval Uncertainty, Generation Uncertainty, Calibration
 
-## 📁 Project Structure
+## Project Structure
 ```
 bayesian-rag-uncertainty/
 ├── src/
@@ -117,7 +117,7 @@ bayesian-rag-uncertainty/
 └── notebooks/              # Analysis notebooks
 ```
 
-## 🧮 Mathematical Foundations
+## Mathematical Foundations
 
 ### Bayesian Retrieval
 
@@ -161,7 +161,7 @@ qᵢ = exp(zᵢ/T) / Σⱼ exp(zⱼ/T)
 ```
 where T is optimized to minimize negative log-likelihood on validation set.
 
-## 🔬 Technologies
+## Technologies
 
 - **ML/AI**: PyTorch, Transformers (distilGPT-2), sentence-transformers
 - **Retrieval**: LangChain, FAISS
@@ -169,14 +169,14 @@ where T is optimized to minimize negative log-likelihood on validation set.
 - **Visualization**: Streamlit, Matplotlib, Plotly
 - **Testing**: pytest
 
-## 📈 Results
+## Results
 
 - **Retrieval**: Calibrated uncertainty with 95% credible intervals
 - **Generation**: Epistemic uncertainty decomposition via mutual information
-- **Calibration**: ECE reduced from 0.15 → 0.03 after temperature scaling
+- **Calibration**: ECE reduced from 0.15 to 0.03 after temperature scaling
 - **Test Coverage**: 18/18 tests passing across all modules
 
-## 💡 Design Philosophy
+## Design Philosophy
 
 This demo uses **distilGPT-2 (76M parameters)** intentionally to demonstrate:
 
@@ -186,31 +186,31 @@ This demo uses **distilGPT-2 (76M parameters)** intentionally to demonstrate:
 
 2. **Production scalability**
    - The same uncertainty framework works with any language model
-   - Swap distilGPT-2 → GPT-4 → Llama 3, the math stays the same
+   - Swap distilGPT-2 for GPT-4, Llama 3, or Claude — the math stays the same
    - Shows separation of concerns: uncertainty layer is model-agnostic
 
 3. **Production deployment**
    - Replace distilGPT-2 with GPT-3.5/4 (OpenAI API), Claude (Anthropic API), or Llama 3 (self-hosted)
    - The uncertainty quantification framework remains unchanged
 
-## 🎓 Use Cases
+## Use Cases
 
 - **High-stakes Q&A systems**: Medical diagnosis, legal research, financial analysis
 - **Content moderation**: Flag uncertain predictions for human review
 - **Educational tools**: Identify knowledge gaps and uncertain explanations
 - **Responsible AI**: Any application where knowing "when the AI might be wrong" matters
 
-## 📝 License
+## License
 
 MIT License - see [LICENSE](LICENSE) file for details.
 
-## 👤 Author
+## Author
 
 **Harishankar Kottayi**
 - GitHub: [@hari-sherith](https://github.com/hari-sherith)
 - LinkedIn: [harishankar-kottayi](https://linkedin.com/in/harishankar-kottayi-b65207246)
 - Email: harisherith@gmail.com
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Built as part of a portfolio project demonstrating practical applications of Bayesian inference and uncertainty quantification in modern ML systems.
